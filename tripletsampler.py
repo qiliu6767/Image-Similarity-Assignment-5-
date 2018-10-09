@@ -182,5 +182,5 @@ if __name__ == '__main__':
 # output_path = '/u/training/tra415/HW05'
 # triplet_sampler(dir_path = train_dir,
 # 				output_path = output_path,
-# 				num_neg_images = 5,
-# 				num_pos_images = 5)
+# 				num_neg_images = 1,
+# 				num_pos_images = 1)
