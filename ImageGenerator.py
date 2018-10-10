@@ -71,10 +71,11 @@ trainloader = data.DataLoader(
 	pin_memory = True)
 
 # # Test 
-# print(list(trainloader)[999][2].size())
-# flist = '/Users/qiliu/Desktop/Fall2018/IE534/Homeworks/Homework05/triplets.txt'
-# test_imlist = default_flist_reader(flist)
-# print(test_imlist[9999])
+# print(len(list(trainloader)))
+# print(type(trainloader))
+# print(list(trainloader)[9999][2].size())
+
+
 
 
 
