@@ -4,6 +4,10 @@ from PIL import Image
 import os
 import os.path
 import torchvision.transforms as transforms
+from hingeLoss import TripletLoss
+from model import resnet18
+import torch.nn as nn
+
 
 def default_loader(path):
 	return Image.open(path).convert('RGB')
@@ -50,49 +54,3 @@ class ImageFilelist(data.Dataset):
 
 	def __len__(self):
 		return len(self.imlist)
-
-train_transform = transforms.Compose([
-	transforms.RandomHorizontalFlip(),
-	transforms.RandomCrop(32, padding = 4),
-	# Convert the images into a format usable by PyTorch
-	transforms.ToTensor(), 
-	# Make all pixels range between -1 to +1
-	transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-])
-
-trainloader = data.DataLoader(
-	ImageFilelist(flist = '/Users/qiliu/Desktop/Fall2018/IE534/Homeworks/Homework05/triplets.txt',
-			      query_transform = train_transform,
-				  pos_transform = train_transform,
-				  neg_transform = train_transform),
-	batch_size = 10,
-	shuffle = False,
-	num_workers = 4,
-	pin_memory = True)
-
-# # Test 
-# print(len(list(trainloader)))
-# print(type(trainloader))
-# print(list(trainloader)[9999][2].size())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
